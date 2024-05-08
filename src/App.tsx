@@ -1,3 +1,4 @@
+import { ArticleMod } from "./components/ArticleMod.tsx";
 import { useGetData } from "./hooks/useGetData.ts";
 
 
@@ -8,11 +9,7 @@ function App() {
     return (
         <div className="App">
             {
-                items.map(({ author, title, url }) => <div>
-                    <h1>{title}</h1>
-                    <h2>{author}</h2>
-                    <a>{url}</a>
-                </div> )
+                items.map(( item ) => <ArticleMod item={item} /> )
             }
         </div>
     )
