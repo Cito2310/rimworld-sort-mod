@@ -6,13 +6,14 @@ interface props {
 }
 
 export const LabelInput = ({ addLabel }: props) => {
-    const { register, getValues, handleSubmit  } = useForm({ defaultValues: { newLabel: "" } })
+    const { register, getValues, handleSubmit, reset  } = useForm({ defaultValues: { newLabel: "" } })
 
     const onNewLabel = () => {
         const value = getValues( "newLabel" ).trim();
         
         if ( value.length <= 3 ) return;
 
+        reset({ newLabel: "" });
         addLabel( value );
     }
 

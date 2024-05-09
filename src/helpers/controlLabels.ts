@@ -19,8 +19,6 @@ export const controlLabels = (
         const copyItems = structuredClone( items );
 
         if ( func === "remove" ) {
-            console.log(indexLabel)
-
             if ( indexLabel === undefined ) throw new Error("Not define 'indexLabel' for 'remove'");
             copyItems[index].labels.splice( indexLabel, 1 );
         }

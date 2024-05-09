@@ -1,9 +1,11 @@
+import { useControlArticle } from "../hooks/useControlArticle";
 import { propsLabel } from "../helpers/controlLabels";
-import { DataItems } from "../types/DataItems"
+
 import { ButtonArticle } from "./ButtonArticle";
-import { useState } from "react";
 import { LabelCategory } from "./LabelCategory";
 import { LabelInput } from "./LabelInput";
+
+import { DataItems } from "../types/DataItems"
 
 interface props {
     item: DataItems
@@ -13,26 +15,8 @@ interface props {
 
 export const ArticleMod = ({ item, index, labelControl }: props) => {
 
-    const { author, imageUrl, title, url } = item;
-
-    const onOpenPageSteam = () => {
-        window.open( url, "_blank" )
-    }
-
-    const [adding, setAdding] = useState(false);
-
-    const onToggleNewLabel = () => {
-        setAdding(!adding);
-    }
-
-    const deleteLabel = (indexLabel: number) => {
-        labelControl({ func: "remove", index, indexLabel })
-    }
-
-    const addLabel = ( newLabel: string ) => {
-        labelControl({ func: "add", index, newLabel })
-    }
-
+    const { author, imageUrl, title } = item;
+    const { addLabel, deleteLabel, onOpenPageSteam, onToggleNewLabel, adding } = useControlArticle({ index, item, labelControl })
 
     return (
         <article className="flex shadow m-2 rounded mx-4 bg-white p-2 justify-between">
@@ -64,8 +48,6 @@ export const ArticleMod = ({ item, index, labelControl }: props) => {
                     ? <ButtonArticle onClick={ onToggleNewLabel } icon="xcross" />
                     : <ButtonArticle onClick={ onToggleNewLabel } icon="plus" />
                 }
-                
-
             </div>
         </article> 
     )
