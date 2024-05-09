@@ -7,10 +7,13 @@ interface props {
 
 export const SearchMod = ({ setCurrentSearch }: props) => {
 
-    const { register, reset, getValues, watch } = useForm()
+    const { register, reset, getValues, watch } = useForm({ defaultValues: { search: "" } })
 
     useEffect(() => {
-        setCurrentSearch( getValues("search") )
+        const valueSearch = getValues( "search" ).trim();
+
+        if ( valueSearch.length !== 0 ) setCurrentSearch( valueSearch )
+        
     }, [watch("search")])
 
     const onReset = () => { reset({search:""}) }
