@@ -11,7 +11,7 @@ export const useControlData = () => {
 
     // FUNCIONES
     // Funcion para obtener los datos de la carpeta public
-    const getData: ()=> Promise<DataItems[]> = async () => (await axios.get("public/items.json")).data;
+    const getData: ()=> Promise<DataItems[]> = async () => (await axios.get("items.json")).data;
     
     // Funcion para guardar en el LocalStorage
     const saveItem = () => { if ( items.length !== 0 ) window.localStorage.setItem(keyItemData, JSON.stringify(items)) }
