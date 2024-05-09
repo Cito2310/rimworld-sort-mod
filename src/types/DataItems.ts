@@ -6,4 +6,5 @@ export interface DataItems {
     author: string;
     imageUrl: string;
     labels: Label[];
+    popularityTop: number;
 }

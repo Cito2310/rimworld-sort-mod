@@ -15,7 +15,7 @@ interface props {
 
 export const ArticleMod = ({ item, index, labelControl }: props) => {
 
-    const { author, imageUrl, title } = item;
+    const { author, imageUrl, title, popularityTop } = item;
     const { addLabel, deleteLabel, onOpenPageSteam, onToggleNewLabel, adding } = useControlArticle({ index, item, labelControl })
 
     return (
@@ -26,7 +26,7 @@ export const ArticleMod = ({ item, index, labelControl }: props) => {
                 </div>
 
                 <div>
-                    <h1 className="font-medium text-lg">{index + 1} - {title}</h1>
+                    <h1 className="font-medium text-lg">{popularityTop} - {title}</h1>
                     <h2>{author}</h2>
                 </div>
             </div>
