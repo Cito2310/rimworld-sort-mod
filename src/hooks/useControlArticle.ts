@@ -4,11 +4,11 @@ import { DataItems } from "../types/DataItems";
 
 interface props {
     item: DataItems;
-    index: number;
-    labelControl: ({ func, index, indexLabel, newLabel }: propsLabel) => void
+    url: string;
+    labelControl: ({ func, url, indexLabel, newLabel }: propsLabel) => void
 }
 
-export const useControlArticle = ({ item, index, labelControl }: props) => {
+export const useControlArticle = ({ item, url, labelControl }: props) => {
 
     const onOpenPageSteam = () => {
         window.open( item.url, "_blank" )
@@ -21,11 +21,11 @@ export const useControlArticle = ({ item, index, labelControl }: props) => {
     }
 
     const deleteLabel = (indexLabel: number) => {
-        labelControl({ func: "remove", index, indexLabel })
+        labelControl({ func: "remove", url, indexLabel })
     }
 
     const addLabel = ( newLabel: string ) => {
-        labelControl({ func: "add", index, newLabel })
+        labelControl({ func: "add", url, newLabel })
     }
 
 

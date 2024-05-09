@@ -16,7 +16,10 @@ export const SearchMod = ({ setCurrentSearch }: props) => {
         
     }, [watch("search")])
 
-    const onReset = () => { reset({search:""}) }
+    const onReset = () => { 
+        reset({search:""}); 
+        setCurrentSearch("");
+    }
 
 
 

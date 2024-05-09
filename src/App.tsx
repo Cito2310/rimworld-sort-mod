@@ -20,8 +20,8 @@ function App() {
 
             {
                 items
-                    .filter(( item ) => searchTerms( currentSearch, item ) )
-                    .map(( item, index ) => <ArticleMod labelControl={ labelControl } key={ item.url } item={item} index={index} /> )
+                    .filter( item => searchTerms( currentSearch, item ) )
+                    .map( item => <ArticleMod labelControl={ labelControl } key={ item.url } item={item} /> )
             }
         </div>
     )

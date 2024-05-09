@@ -9,14 +9,13 @@ import { DataItems } from "../types/DataItems"
 
 interface props {
     item: DataItems
-    index: number
-    labelControl: ({ func, index, indexLabel, newLabel }: propsLabel) => void
+    labelControl: ({ func, url, indexLabel, newLabel }: propsLabel) => void
 }
 
-export const ArticleMod = ({ item, index, labelControl }: props) => {
+export const ArticleMod = ({ item, labelControl }: props) => {
 
-    const { author, imageUrl, title, popularityTop } = item;
-    const { addLabel, deleteLabel, onOpenPageSteam, onToggleNewLabel, adding } = useControlArticle({ index, item, labelControl })
+    const { author, imageUrl, title, popularityTop, url } = item;
+    const { addLabel, deleteLabel, onOpenPageSteam, onToggleNewLabel, adding } = useControlArticle({ url, item, labelControl })
 
     return (
         <article className="flex shadow m-2 rounded mx-4 bg-white p-2 justify-between">
