@@ -1,5 +1,5 @@
 import { ArticleMod } from "./components/ArticleMod.tsx";
-import { useGetData } from "./hooks/useGetData.ts";
+import { useControlData } from "./hooks/useControlData.ts";
 import { useState } from "react";
 import { searchTerms } from "./helpers/searchTerms.ts";
 import { SearchMod } from "./components/SearchMod.tsx";
@@ -7,7 +7,7 @@ import { SearchMod } from "./components/SearchMod.tsx";
 
 function App() {
 
-    const { items } = useGetData()
+    const {items, labelControl} = useControlData()
 
     const [currentSearch, setCurrentSearch] = useState("")
 
@@ -21,7 +21,7 @@ function App() {
             {
                 items
                     .filter(( item ) => searchTerms( currentSearch, item ) )
-                    .map( item => <ArticleMod key={ item.url } item={item} /> )
+                    .map(( item, index ) => <ArticleMod labelControl={ labelControl } key={ item.url } item={item} index={index} /> )
             }
         </div>
     )
